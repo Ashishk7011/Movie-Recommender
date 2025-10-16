@@ -1,3 +1,4 @@
+!pip install --upgrade pip
 import streamlit as st
 import pickle
 import pandas as pd
@@ -64,3 +65,4 @@ if search:
             else:
 
                 st.dataframe(value)
+
