@@ -1,7 +1,15 @@
 import streamlit as st
 import pickle
 import pandas as pd
+import os
+import gdown
 
+file_id = "1o7QynCjtAklI5-9ANEiFQiYIj5qkT9rs" 
+url = f"https://drive.google.com/uc?id={file_id}"
+
+if not os.path.exists("similarity.pkl"):
+    with st.spinner("Downloading similarity data from Google Drive..."):
+        gdown.download(url, "similarity.pkl", quiet=False)
 
 def recommend(search):
     results = {}
@@ -54,4 +62,5 @@ if search:
                 for v in value:
                     st.write(f"• {v}")
             else:
+
                 st.dataframe(value)
